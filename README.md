@@ -1,73 +1,183 @@
-# React + TypeScript + Vite
+# Knowledge Base Search Engine - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive React frontend for an AI-powered knowledge base search engine. Upload documents, ask questions, and get structured answers with source citations using Retrieval-Augmented Generation (RAG).
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19.1.1-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue.svg)
+![Vite](https://img.shields.io/badge/Vite-7.1.7-yellow.svg)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.14-blue.svg)
+![Shadcn/ui](https://img.shields.io/badge/Shadcn/ui-Components-black.svg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## React Compiler
+- **Document Upload**: Support for PDF and text files with real-time progress tracking
+- **Intelligent Search**: Ask natural language questions about your documents
+- **Streaming Responses**: Real-time answer generation with Markdown rendering
+- **Source Citations**: View confidence-scored chunks with direct links to content
+- **Dark/Light Mode**: Automatic theme switching with system preference detection
+- **Responsive Design**: Optimized for desktop and mobile devices
+- **Modern UI**: Glassmorphism design with smooth animations and micro-interactions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4 with custom utilities
+- **UI Components**: Shadcn/ui (Radix UI primitives)
+- **Icons**: Lucide React
+- **Markdown Rendering**: React Markdown with GitHub Flavored Markdown support
+- **Syntax Highlighting**: Highlight.js with code block rendering
+- **State Management**: React hooks with context
+- **HTTP Client**: Fetch API with custom error handling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📋 Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+ and npm
+- Backend API server running (see backend repository)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Sri-Rahul/Knowledge-Base-Search-Engine-Frontend.git
+   cd Knowledge-Base-Search-Engine-Frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   ```
+
+   Edit `.env` and set your backend API URL:
+   ```env
+   VITE_API_URL=http://localhost:8000/api
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+   The app will be available at `http://localhost:5173`
+
+## 📜 Available Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality checks
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/                 # Reusable UI components (Shadcn/ui)
+│   ├── DocumentUpload.tsx  # File upload interface
+│   ├── QueryInterface.tsx  # Search and results interface
+│   └── ThemeToggle.tsx     # Dark/light mode switcher
+├── services/
+│   └── api.ts              # API client and error handling
+├── types/
+│   └── api.ts              # TypeScript type definitions
+├── lib/
+│   └── utils.ts            # Utility functions
+├── App.tsx                 # Main application component
+├── main.tsx                # Application entry point
+└── index.css               # Global styles and Tailwind imports
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎨 Styling
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The application uses Tailwind CSS v4 with custom design tokens:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Color Palette**: Dual theme support (light/dark) with CSS custom properties
+- **Glassmorphism**: Backdrop blur effects for modern UI
+- **Animations**: CSS transitions and keyframe animations
+- **Typography**: Custom font stack with proper scaling
+- **Responsive**: Mobile-first design with breakpoint utilities
+
+## 🌐 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_URL` | Backend API base URL | `http://localhost:8000/api` |
+
+## 🚀 Deployment
+
+### Netlify (Recommended)
+
+1. **Connect Repository**
+   - Import project from GitHub
+   - Set build settings:
+     - **Base directory**: `frontend` (if nested)
+     - **Build command**: `npm run build`
+     - **Publish directory**: `dist`
+
+2. **Environment Variables**
+   ```
+   VITE_API_URL=https://your-backend.onrender.com/api
+   ```
+
+3. **Deploy**
+   - Netlify will auto-deploy on pushes to main branch
+   - Custom domain support available
+
+### Vercel
+
+1. **Import Project**
+   ```bash
+   npm install -g vercel
+   vercel
+   ```
+
+2. **Configure**
+   - Set `VITE_API_URL` in environment variables
+   - Deploy
+
+## 🔧 Development
+
+### Code Quality
+
+- **ESLint**: Configured for React and TypeScript
+- **TypeScript**: Strict type checking enabled
+- **Prettier**: Code formatting (via ESLint)
+
+### API Integration
+
+The frontend communicates with a FastAPI backend providing:
+
+- Document upload endpoints
+- Streaming query endpoints
+- Health check endpoints
+
+### Error Handling
+
+- Network errors with user-friendly messages
+- API error responses with detailed feedback
+- Loading states and progress indicators
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+
+## 🙏 Acknowledgments
+
+- Built with [Vite](https://vitejs.dev/)
+- UI components from [Shadcn/ui](https://ui.shadcn.com/)
+- Icons from [Lucide](https://lucide.dev/)
+- Markdown rendering with [React Markdown](https://github.com/remarkjs/react-markdown)
+
+---
+
+**Built by Rahul** - A modern RAG-powered knowledge base search engine
