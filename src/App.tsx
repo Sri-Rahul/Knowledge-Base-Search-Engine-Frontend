@@ -167,7 +167,7 @@ function App() {
       <footer className="relative z-10 mt-20 border-t border-border/70 bg-background/80 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-center text-xs text-muted-foreground sm:flex-row">
           <p>FastAPI · ChromaDB · Groq · React · Tailwind CSS</p>
-          <span className="font-medium text-muted-foreground/80">© {new Date().getFullYear()} Aurora RAG Studio</span>
+          <span className="font-medium text-muted-foreground/80">Built by Rahul</span>
         </div>
       </footer>
     </div>
